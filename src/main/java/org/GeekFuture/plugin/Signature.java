@@ -13,30 +13,26 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
+package org.GeekFuture.plugin;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * 
- * 持久化异常
+ * @author Clinton Begin
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
+/**
+ * 签名
+ */
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface Signature {
+  //就是定义哪些类，方法，参数需要被拦截
+  Class<?> type();
 
-  private static final long serialVersionUID = -7537395265357977271L;
+  String method();
 
-  public PersistenceException() {
-    super();
-  }
-
-  public PersistenceException(String message) {
-    super(message);
-  }
-
-  public PersistenceException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
-  public PersistenceException(Throwable cause) {
-    super(cause);
-  }
+  Class<?>[] args();
 }

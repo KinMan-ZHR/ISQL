@@ -13,30 +13,34 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
+package org.GeekFuture.core.session;
+
+import org.GeekFuture.exceptions.PersistenceException;
 
 /**
- * 
- * 持久化异常
+ * @author Clinton Begin
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
+/**
+ * SqlSession异常
+ *
+ */
+public class SqlSessionException extends PersistenceException {
 
-  private static final long serialVersionUID = -7537395265357977271L;
+  private static final long serialVersionUID = 3833184690240265047L;
 
-  public PersistenceException() {
+  public SqlSessionException() {
     super();
   }
 
-  public PersistenceException(String message) {
+  public SqlSessionException(String message) {
     super(message);
   }
 
-  public PersistenceException(String message, Throwable cause) {
+  public SqlSessionException(String message, Throwable cause) {
     super(message, cause);
   }
 
-  public PersistenceException(Throwable cause) {
+  public SqlSessionException(Throwable cause) {
     super(cause);
   }
 }

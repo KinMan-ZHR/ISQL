@@ -13,30 +13,30 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
+package org.GeekFuture.plugin;
+
+import org.apache.ibatis.exceptions.PersistenceException;
 
 /**
- * 
- * 持久化异常
+ * @author Clinton Begin
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
+public class PluginException extends PersistenceException {
 
-  private static final long serialVersionUID = -7537395265357977271L;
+  private static final long serialVersionUID = 8548771664564998595L;
 
-  public PersistenceException() {
+  public PluginException() {
     super();
   }
 
-  public PersistenceException(String message) {
+  public PluginException(String message) {
     super(message);
   }
 
-  public PersistenceException(String message, Throwable cause) {
+  public PluginException(String message, Throwable cause) {
     super(message, cause);
   }
 
-  public PersistenceException(Throwable cause) {
+  public PluginException(Throwable cause) {
     super(cause);
   }
 }

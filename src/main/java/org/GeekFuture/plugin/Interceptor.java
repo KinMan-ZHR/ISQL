@@ -13,30 +13,26 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
+package org.GeekFuture.plugin;
+
+import java.util.Properties;
 
 /**
- * 
- * 持久化异常
+ * @author Clinton Begin
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
+/**
+ * 拦截器
+ *
+ */
+public interface Interceptor {
 
-  private static final long serialVersionUID = -7537395265357977271L;
+  //拦截
+  Object intercept(Invocation invocation) throws Throwable;
 
-  public PersistenceException() {
-    super();
-  }
+  //插入
+  Object plugin(Object target);
 
-  public PersistenceException(String message) {
-    super(message);
-  }
+  //设置属性
+  void setProperties(Properties properties);
 
-  public PersistenceException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
-  public PersistenceException(Throwable cause) {
-    super(cause);
-  }
 }

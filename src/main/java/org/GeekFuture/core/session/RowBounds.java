@@ -13,37 +13,42 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.logging;
-
+package org.GeekFuture.core.session;
 
 /**
  * @author Clinton Begin
  */
-
-import org.GeekFuture.exceptions.PersistenceException;
-
 /**
- * 日志异常,继承PersistenceException，没啥好说的，就是语义分类
- * 
+ * 分页用，记录限制
+ *
  */
-public class LogException extends PersistenceException {
+public class RowBounds {
 
-  private static final long serialVersionUID = 1022924004852350942L;
+  public static final int NO_ROW_OFFSET = 0;
+  public static final int NO_ROW_LIMIT = Integer.MAX_VALUE;
+  public static final RowBounds DEFAULT = new RowBounds();
 
-  public LogException() {
-    super();
+  //offset,limit就等于一般分页的start,limit,
+  private int offset;
+  private int limit;
+
+  //默认是一页Integer.MAX_VALUE条
+  public RowBounds() {
+    this.offset = NO_ROW_OFFSET;
+    this.limit = NO_ROW_LIMIT;
   }
 
-  public LogException(String message) {
-    super(message);
+  public RowBounds(int offset, int limit) {
+    this.offset = offset;
+    this.limit = limit;
   }
 
-  public LogException(String message, Throwable cause) {
-    super(message, cause);
+  public int getOffset() {
+    return offset;
   }
 
-  public LogException(Throwable cause) {
-    super(cause);
+  public int getLimit() {
+    return limit;
   }
 
 }

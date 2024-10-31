@@ -13,30 +13,26 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
+package org.GeekFuture.core.session;
 
 /**
- * 
- * 持久化异常
+ * @author Clinton Begin
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
+/**
+ * 结果上下文
+ * 
+ */
+public interface ResultContext {
 
-  private static final long serialVersionUID = -7537395265357977271L;
+  //获取结果
+  Object getResultObject();
 
-  public PersistenceException() {
-    super();
-  }
+  //获取记录数
+  int getResultCount();
 
-  public PersistenceException(String message) {
-    super(message);
-  }
+  boolean isStopped();
 
-  public PersistenceException(String message, Throwable cause) {
-    super(message, cause);
-  }
+  //停止?
+  void stop();
 
-  public PersistenceException(Throwable cause) {
-    super(cause);
-  }
 }

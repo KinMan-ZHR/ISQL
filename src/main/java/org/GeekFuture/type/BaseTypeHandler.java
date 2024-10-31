@@ -15,8 +15,6 @@
  */
 package org.GeekFuture.type;
 
-import org.GeekFuture.session.Configuration;
-
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -16,7 +16,7 @@
 package org.GeekFuture.logging.jdbc;
 
 import org.GeekFuture.logging.Log;
-import org.GeekFuture.reflection.ExceptionUtil;
+import org.GeekFuture.exceptions.ExceptionUtil;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

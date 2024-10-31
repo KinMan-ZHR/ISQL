@@ -13,30 +13,16 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
+package org.GeekFuture.core.session;
 
 /**
- * 
- * 持久化异常
+ * @author Eduardo Macarron
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
-
-  private static final long serialVersionUID = -7537395265357977271L;
-
-  public PersistenceException() {
-    super();
-  }
-
-  public PersistenceException(String message) {
-    super(message);
-  }
-
-  public PersistenceException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
-  public PersistenceException(Throwable cause) {
-    super(cause);
-  }
+/**
+ * 本地缓存机制（Local Cache）防止循环引用（circular references）和加速重复嵌套查询。
+ * 默认值为 SESSION，这种情况下会缓存一个会话中执行的所有查询。
+ * 若设置值为 STATEMENT，本地会话仅用在语句执行上，对相同 SqlSession 的不同调用将不会共享数据。 
+ */
+public enum LocalCacheScope {
+  SESSION,STATEMENT
 }

@@ -45,27 +45,6 @@ public final class LogFactory {
         useSlf4jLogging();
       }
     });
-    //common logging
-    tryImplementation(new Runnable() {
-      @Override
-      public void run() {
-        useCommonsLogging();
-      }
-    });
-    //log4j2
-    tryImplementation(new Runnable() {
-      @Override
-      public void run() {
-        useLog4J2Logging();
-      }
-    });
-    //log4j
-    tryImplementation(new Runnable() {
-      @Override
-      public void run() {
-        useLog4JLogging();
-      }
-    });
     //jdk logging
     tryImplementation(new Runnable() {
       @Override
@@ -109,18 +88,6 @@ public final class LogFactory {
 
   public static synchronized void useSlf4jLogging() {
     setImplementation(org.GeekFuture.logging.slf4j.Slf4jImpl.class);
-  }
-
-  public static synchronized void useCommonsLogging() {
-    setImplementation(org.GeekFuture.logging.commons.JakartaCommonsLoggingImpl.class);
-  }
-
-  public static synchronized void useLog4JLogging() {
-    setImplementation(org.GeekFuture.logging.log4j.Log4jImpl.class);
-  }
-
-  public static synchronized void useLog4J2Logging() {
-    setImplementation(org.GeekFuture.logging.log4j2.Log4j2Impl.class);
   }
 
   public static synchronized void useJdkLogging() {

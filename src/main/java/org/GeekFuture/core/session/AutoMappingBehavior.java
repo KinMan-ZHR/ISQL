@@ -13,30 +13,27 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
+package org.GeekFuture.core.session;
 
 /**
+ * Specifies if and how MyBatis should automatically map columns to fields/properties.
  * 
- * 持久化异常
+ * @author Eduardo Macarron
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
+public enum AutoMappingBehavior {
 
-  private static final long serialVersionUID = -7537395265357977271L;
+  /**
+   * Disables auto-mapping.
+   */
+  NONE,
 
-  public PersistenceException() {
-    super();
-  }
+  /**
+   * Will only auto-map results with no nested result mappings defined inside.
+   */
+  PARTIAL,
 
-  public PersistenceException(String message) {
-    super(message);
-  }
-
-  public PersistenceException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
-  public PersistenceException(Throwable cause) {
-    super(cause);
-  }
+  /**
+   * Will auto-map result mappings of any complexity (containing nested or otherwise).
+   */
+  FULL
 }

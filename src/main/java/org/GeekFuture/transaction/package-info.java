@@ -13,30 +13,8 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
 
 /**
- * 
- * 持久化异常
+ * Base package for transactions.
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
-
-  private static final long serialVersionUID = -7537395265357977271L;
-
-  public PersistenceException() {
-    super();
-  }
-
-  public PersistenceException(String message) {
-    super(message);
-  }
-
-  public PersistenceException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
-  public PersistenceException(Throwable cause) {
-    super(cause);
-  }
-}
+package org.GeekFuture.transaction;

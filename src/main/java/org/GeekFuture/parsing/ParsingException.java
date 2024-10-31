@@ -13,30 +13,35 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
+package org.GeekFuture.parsing;
+
+
 
 /**
- * 
- * 持久化异常
+ * @author Clinton Begin
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
 
-  private static final long serialVersionUID = -7537395265357977271L;
+import org.GeekFuture.exceptions.PersistenceException;
 
-  public PersistenceException() {
+/**
+ * 解析异常
+ */
+public class ParsingException extends PersistenceException {
+  private static final long serialVersionUID = -176685891441325943L;
+
+  public ParsingException() {
     super();
   }
 
-  public PersistenceException(String message) {
+  public ParsingException(String message) {
     super(message);
   }
 
-  public PersistenceException(String message, Throwable cause) {
+  public ParsingException(String message, Throwable cause) {
     super(message, cause);
   }
 
-  public PersistenceException(Throwable cause) {
+  public ParsingException(Throwable cause) {
     super(cause);
   }
 }

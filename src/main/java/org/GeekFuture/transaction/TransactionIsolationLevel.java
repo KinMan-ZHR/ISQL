@@ -13,30 +13,32 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.GeekFuture.exceptions;
+package org.GeekFuture.transaction;
+
+import java.sql.Connection;
 
 /**
- * 
- * 持久化异常
+ * @author Clinton Begin
  */
-@SuppressWarnings("deprecation")
-public class PersistenceException extends RuntimeException {
+/**
+ * 事务隔离级别，是一个枚举型
+ * 
+ */
+public enum TransactionIsolationLevel {
+	//包括JDBC支持的5个级别
+  NONE(Connection.TRANSACTION_NONE),
+  READ_COMMITTED(Connection.TRANSACTION_READ_COMMITTED),
+  READ_UNCOMMITTED(Connection.TRANSACTION_READ_UNCOMMITTED),
+  REPEATABLE_READ(Connection.TRANSACTION_REPEATABLE_READ),
+  SERIALIZABLE(Connection.TRANSACTION_SERIALIZABLE);
 
-  private static final long serialVersionUID = -7537395265357977271L;
+  private final int level;
 
-  public PersistenceException() {
-    super();
+  private TransactionIsolationLevel(int level) {
+    this.level = level;
   }
 
-  public PersistenceException(String message) {
-    super(message);
-  }
-
-  public PersistenceException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
-  public PersistenceException(Throwable cause) {
-    super(cause);
+  public int getLevel() {
+    return level;
   }
 }
